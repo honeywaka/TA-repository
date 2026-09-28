@@ -19,3 +19,26 @@ Build/
 
 # Local config
 *.local
+# UE 日志
+*.log
+*.trace
+# 材质编辑器临时备份、自动保存
+*.autosave
+# 桌面平台编译产物
+*.exe
+*.pdb
+*.dll
+# 引擎项目的配置临时缓存
+*.bak
+*.tmp
+# 外部中间导出缓存（blender/sp等临时文件）
+*.blend1
+# Unreal 的 sln 与 vcproj 解决方案文件，不需要提交！
+*.sln
+*.vcxproj
+*.vcxproj.filters
+# 着色器缓存
+ShaderCache/
+# 打包输出文件夹！非常重要，打包输出体积巨大！
+Saved/StagedBuilds/
+Saved/Cooked/

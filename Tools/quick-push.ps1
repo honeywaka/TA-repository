@@ -42,3 +42,14 @@ git push
 if ($LASTEXITCODE -ne 0) { throw "git push 失败" }
 
 Write-Host "一键推送成功！" -ForegroundColor Green
+# 在脚本末尾加这一段，作为 bonus 功能
+Write-Host "`n📦 仓库中最大的 10 个文件：" -ForegroundColor Magenta
+git ls-files | ForEach-Object {
+    $size = (git cat-file -s$_ 2>$null)
+    if ($size) {
+        \[PSCustomObject]@{
+            File = $_
+            SizeKB = \[math]::Round($size / 1024, 2)
+        }
+    }
+} | Sort-Object SizeKB -Descending | Select-Object -First 10 | Format-Table -AutoSize
